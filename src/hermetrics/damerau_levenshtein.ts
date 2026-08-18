@@ -28,7 +28,7 @@ class DamerauLevenshtein extends Levenshtein {
       distanceMatrix[0][j] = UPPER
     }
     for (let i = 1; i < rows; i++) {
-      distanceMatrix[i][1] = (i - 1) * insertCost
+      distanceMatrix[i][1] = (i - 1) * removeCost
     }
     for (let j = 1; j < cols; j++) {
       distanceMatrix[1][j] = (j - 1) * insertCost
@@ -60,7 +60,7 @@ class DamerauLevenshtein extends Levenshtein {
         substitution = distanceMatrix[i][j] + optSubCost
 
         transpotition = distanceMatrix[lastMatchRow][lastMatchCol] +
-                                Math.max((i - lastMatchRow) * removeCost, (j - lastMatchCol) * insertCost) + transposCost
+                        Math.max((i - lastMatchRow - 1) * removeCost, (j - lastMatchCol - 1) * insertCost) + transposCost
         distanceMatrix[i + 1][j + 1] = Math.min(deletion, insertion, substitution, transpotition)
 
         if (optSubCost === 0) {
