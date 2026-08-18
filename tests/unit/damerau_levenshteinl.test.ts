@@ -61,7 +61,7 @@ describe('Damerau - Levenshtein Distance', function()
             const expApp = Math.abs(similarity - 0.5) < ERROR;
             expect(expApp).equal(true);
         });
-        
+
         it('should return 0.6522 for ace - abcde and (0.75, 1, 1.25, 1.5)', function()
         {   
             const dam = new DamerauLevenshtein();
@@ -88,7 +88,7 @@ describe('Damerau - Levenshtein Distance', function()
             const expApp = Math.abs(normalizedDistance - 0.5) < ERROR;
             expect(expApp).equal(true);
         });
-        
+
         it('should return 0.3478 for ace - abcde and (0.75, 1, 1.25, 1.5)', function()
         {   
             const dam = new DamerauLevenshtein();
