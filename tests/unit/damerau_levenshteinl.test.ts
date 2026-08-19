@@ -13,7 +13,7 @@ describe('Damerau - Levenshtein Distance', function()
             const distance = dam.distance('ab', 'ba');
             expect(distance).equal(1);
         });
-        // 1 transposition and 1 deletion (unrestricted)
+        // 1 deletion (b) then 1 transposition (ac -> ca) (unrestricted)
         it('should return 2 for abc - ca', function()
         {   
             const dam = new DamerauLevenshtein();
@@ -45,7 +45,7 @@ describe('Damerau - Levenshtein Distance', function()
 
     describe('Similarity test', function()
     {
-        // 1 transposition and 1 deletion (unrestricted)
+        // 1 deletion (b) then 1 transposition (ac -> ca) (unrestricted)
         it('should return 0.3333 for abc - ca', function()
         {   
             const dam = new DamerauLevenshtein();
@@ -72,7 +72,7 @@ describe('Damerau - Levenshtein Distance', function()
     })
     describe('Normalized test', function()
     {
-        // 1 transposition and 1 deletion (unrestricted)
+        // 1 deletion (b) then 1 transposition (ac -> ca) (unrestricted)
         it('should return 0.6667 for abc - ca', function()
         {   
             const dam = new DamerauLevenshtein();
